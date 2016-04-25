@@ -5,26 +5,26 @@ class Bob
   end
 
   def hey(remark)
-      if yelling(remark)
+      if yelling?(remark)
         'Whoa, chill out!'
-      elsif questioning(remark)
+      elsif questioning?(remark)
         'Sure.'
-      elsif pausing(remark)
+      elsif pausing?(remark)
         'Fine. Be that way!'
       else
         'Whatever.'
       end
   end
 
-  def yelling(remark)
+  def yelling?(remark)
     remark =~ /[A-Z]/ && remark == remark.upcase
   end
 
-  def questioning(remark)
-    remark.chars.last == "?"
+  def questioning?(remark)
+    remark[-1] == "?"
   end
 
-  def pausing(remark)
-    remark.chars.all? {|char| char == " " || char == "\t" }
+  def pausing?(remark)
+    remark.strip.empty?
   end
 end
