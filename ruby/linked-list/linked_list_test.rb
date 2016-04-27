@@ -21,7 +21,6 @@ class DequeTest < Minitest::Test
   end
 
   def test_unshift_shift
-    skip
     deque = Deque.new
     deque.unshift(10)
     deque.unshift(20)
@@ -30,7 +29,6 @@ class DequeTest < Minitest::Test
   end
 
   def test_unshift_pop
-    skip
     deque = Deque.new
     deque.unshift(10)
     deque.unshift(20)
@@ -39,7 +37,6 @@ class DequeTest < Minitest::Test
   end
 
   def test_example # rubocop:disable Metrics/MethodLength
-    skip
     deque = Deque.new
     deque.push(10)
     deque.push(20)

@@ -40,6 +40,18 @@ class Deque
     @head = @head.next_node
     return_value
   end
+
+  def unshift(number)
+    node = Node.new(number)
+    if @head.nil?
+      @head = node
+      @tail = node
+    else
+      previous_head = @head
+      @head = node
+      @head.next_node = previous_head
+    end
+  end
 end
 
 
