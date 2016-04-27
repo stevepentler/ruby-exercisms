@@ -34,6 +34,12 @@ class Deque
     end
     return_value
   end
+
+  def shift
+    return_value = @head.data
+    @head = @head.next_node
+    return_value
+  end
 end
 
 
