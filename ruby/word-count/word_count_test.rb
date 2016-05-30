@@ -25,7 +25,6 @@ class PhraseTest < Minitest::Test
   end
 
   def test_count_everything_just_once
-    skip
     phrase = Phrase.new('all the kings horses and all the kings men')
     phrase.word_count # count it an extra time
     counts = {
