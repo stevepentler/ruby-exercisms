@@ -20,6 +20,6 @@ class Phrase
   end
 
   def split_string
-    string.split
+    string.gsub(/[^A-Za-z0-9\s]/i, '').split
   end
 end
