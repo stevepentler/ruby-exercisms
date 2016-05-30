@@ -10,10 +10,10 @@ class Phrase
   def word_count
     final_count = {}
     split_string.each do |word|
-      if final_count[word]
-        final_count[word] += 1
+      if final_count[word.downcase]
+        final_count[word.downcase] += 1
       else
-        final_count[word] = 1
+        final_count[word.downcase] = 1
       end
     end
     final_count
