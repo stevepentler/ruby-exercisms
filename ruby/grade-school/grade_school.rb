@@ -20,11 +20,11 @@ class School
   end
 
   def sort_roster
-    sort_levels = roster.sort.to_h
-    sort_levels.map do |level, students|
-      sort_levels[level] = students.sort
+    sort_enrollment = roster.sort.to_h
+    sort_enrollment.map do |level, students|
+      sort_enrollment[level] = students.sort
     end
-    sort_levels
+    sort_enrollment
   end
 end
 
