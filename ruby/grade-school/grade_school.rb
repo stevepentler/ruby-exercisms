@@ -8,6 +8,10 @@ class School
   end
 
   def add(student, grade)
+    students = []
+    students << student
+    database.db[grade] = students
+
   end
 
   def to_h
