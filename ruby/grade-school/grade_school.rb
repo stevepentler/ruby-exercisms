@@ -1,21 +1,33 @@
 require 'pry'
 
 class School
-  attr_reader :database
+  attr_reader :database, :roster
 
   def initialize
     @database = Database.new
+    @roster = database.db
   end
 
-  def add(student, grade)
-    roster = database.db
-    level = roster[grade]
-    level << student
-    roster[grade] = level
+  def add(student, level)
+    grade_enrollment = roster[level]
+    grade_enrollment << student
+    roster[level] = grade_enrollment
+  end
+
+  def grade(level)
+    roster[level].sort!
   end
 
   def to_h
-    database.db
+    sort_roster
+  end
+
+  def sort_roster
+    sort_levels = roster.sort.to_h
+    sort_levels.map do |level, students|
+      sort_levels[level] = students.sort
+    end
+    sort_levels
   end
 end
 
@@ -25,4 +37,8 @@ class Database
   def initialize
     @db = Hash.new { |hash, key| hash[key] = [] }
   end
+end
+
+class BookKeeping
+  VERSION = 1
 end
