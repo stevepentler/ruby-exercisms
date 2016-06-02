@@ -8,9 +8,7 @@ class School
   end
 
   def add(student, level)
-    grade_enrollment = roster[level]
-    grade_enrollment << student
-    roster[level] = grade_enrollment
+    roster[level] = roster[level].push(student)
   end
 
   def grade(level)
