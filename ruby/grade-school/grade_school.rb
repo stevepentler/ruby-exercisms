@@ -1,11 +1,10 @@
 require 'pry'
 
 class School
-  attr_reader :database, :roster
+  attr_reader :roster
 
   def initialize
-    @database = Database.new
-    @roster = database.db
+    @roster = Database.new.db
   end
 
   def add(student, level)
