@@ -8,10 +8,10 @@ class School
   end
 
   def add(student, grade)
-    students = []
-    students << student
-    database.db[grade] = students
-
+    roster = database.db
+    level = roster[grade]
+    level << student
+    roster[grade] = level
   end
 
   def to_h
