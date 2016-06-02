@@ -11,11 +11,11 @@ class SchoolTest < Minitest::Test
   end
 
   def test_an_empty_school
-    skip
     assert_equal({}, school.to_h)
   end
 
   def test_add_student
+    skip
     school.add('Aimee', 2)
     assert_equal({ 2 => ['Aimee'] }, school.to_h)
   end
