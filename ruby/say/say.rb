@@ -1,3 +1,4 @@
+require 'pry'
 class Say
   attr_reader :number
 
@@ -8,12 +9,22 @@ class Say
   def in_english
     case number
       when 0..20
-        return UNDER_TWENTY[number]
+        return WITHIN_TWENTY[number]
+      when 21..99
+        tens = TENS[find_digit(0)]
+        ones = WITHIN_TWENTY[find_digit(-1)]
+        return tens + ones
+
     end
   end
 
+  def find_digit(place)
+    number.to_s[place].to_i
+  end
 
-  UNDER_TWENTY = {
+
+  WITHIN_TWENTY = {
+    20  => "twenty",
     19  => "nineteen",
     17  => "seventeen",
     16  => "sixteen",
@@ -34,5 +45,16 @@ class Say
     1   => "one",
     0   => "zero",
 }
+
+  TENS = {
+    2  => "twenty-",
+    3  => "thirty-",
+    4  => "forty-",
+    5  => "fifty-",
+    6  => "sixty-",
+    7  => "seventy-",
+    8  => "eighty-",
+    9  => "ninety-",
+  }
 
 end
